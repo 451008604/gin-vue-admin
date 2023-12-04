@@ -2,10 +2,7 @@
 <template>
   <div>
     <router-view v-slot="{ Component }">
-      <transition
-        mode="out-in"
-        name="el-fade-in-linear"
-      >
+      <transition mode="out-in" name="el-fade-in-linear">
         <keep-alive :include="routerStore.keepAliveRouters">
           <component :is="Component" />
         </keep-alive>

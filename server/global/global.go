@@ -1,7 +1,6 @@
 package global
 
 import (
-	"github.com/qiniu/qmgo"
 	"sync"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/utils/timer"
@@ -22,7 +21,6 @@ var (
 	GVA_DB     *gorm.DB
 	GVA_DBList map[string]*gorm.DB
 	GVA_REDIS  *redis.Client
-	GVA_MONGO  *qmgo.QmgoClient
 	GVA_CONFIG config.Server
 	GVA_VP     *viper.Viper
 	// GVA_LOG    *oplogging.Logger

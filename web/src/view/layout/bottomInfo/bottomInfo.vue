@@ -10,13 +10,13 @@
       >Gin-Vue-Admin</a>
     </span>
     <slot />
-    <span>Copyright</span>
+    <!-- <span>Copyright</span>
     <span>
       <a
         class="text-gray-800 font-bold"
         href="https://github.com/flipped-aurora"
       >flipped-aurora团队</a>
-    </span>
+    </span> -->
   </div>
 </template>
 
@@ -34,4 +34,3 @@ console.log(
   'background:transparent'
 )
 </script>
-

@@ -1,15 +1,7 @@
 <template>
   <el-tabs v-model="activeName">
-    <el-tab-pane
-      v-for="(item, key) in previewCode"
-      :key="key"
-      :label="key"
-      :name="key"
-    >
-      <div
-        :id="key"
-        class="h-[50vh] bg-white px-5 overflow-y-scroll"
-      />
+    <el-tab-pane v-for="(item, key) in previewCode" :key="key" :label="key" :name="key">
+      <div :id="key" class="h-[50vh] bg-white px-5 overflow-y-scroll" />
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -34,7 +26,7 @@ const activeName = ref('')
 onMounted(() => {
   marked.setOptions({
     renderer: new marked.Renderer(),
-    highlight: function(code) {
+    highlight: function (code) {
       return hljs.highlightAuto(code).value
     },
     pedantic: false,
