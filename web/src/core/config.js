@@ -6,7 +6,7 @@ const config = {
   appName: '慢慢生活',
   appLogo: 'https://www.gin-vue-admin.com/img/logo.png',
   showViteLogo: false,
-  logs: [],
+  logs: []
 }
 
 export const viteLogo = (env) => {
