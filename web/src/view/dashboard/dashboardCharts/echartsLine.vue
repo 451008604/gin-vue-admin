@@ -3,12 +3,10 @@
     <div class="dashboard-line-title">
       访问趋势
     </div>
-    <div
-      ref="echart"
-      class="dashboard-line"
-    />
+    <div ref="echart" class="dashboard-line" />
   </div>
 </template>
+
 <script setup>
 import * as echarts from 'echarts'
 import { nextTick, onMounted, onUnmounted, ref, shallowRef } from 'vue'
@@ -101,7 +99,7 @@ const setOptions = () => {
   })
 }
 
-onMounted(async() => {
+onMounted(async () => {
   await nextTick()
   initChart()
 })
@@ -114,6 +112,7 @@ onUnmounted(() => {
   chart.value = null
 })
 </script>
+
 <style lang="scss" scoped>
 .dashboard-line-box {
   .dashboard-line {
@@ -121,6 +120,7 @@ onUnmounted(() => {
     height: 360px;
     width: 100%;
   }
+
   .dashboard-line-title {
     font-weight: 600;
     margin-bottom: 12px;

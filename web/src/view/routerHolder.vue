@@ -13,8 +13,8 @@
 
 <script setup>
 defineOptions({
-  name: 'RouterHolder'
-})
-import { useRouterStore } from '@/pinia/modules/router'
-const routerStore = useRouterStore()
+  name: "RouterHolder",
+});
+import { useRouterStore } from "@/pinia/modules/router";
+const routerStore = useRouterStore();
 </script>

@@ -9,10 +9,10 @@ import (
 
 	"go.uber.org/zap"
 	"gorm.io/gorm"
+
+	"github.com/flipped-aurora/gin-vue-admin/server/model/PlayerResources"
 )
 
-// Gorm 初始化数据库并产生数据库全局变量
-// Author SliverHorn
 func Gorm() *gorm.DB {
 	switch global.GVA_CONFIG.System.DbType {
 	case "mysql":
@@ -22,12 +22,10 @@ func Gorm() *gorm.DB {
 	}
 }
 
-// RegisterTables 注册数据库表专用
-// Author SliverHorn
 func RegisterTables() {
 	db := global.GVA_DB
 	err := db.AutoMigrate(
-		// 系统模块表
+
 		system.SysApi{},
 		system.SysUser{},
 		system.SysBaseMenu{},
@@ -46,7 +44,7 @@ func RegisterTables() {
 		example.ExaFile{},
 		example.ExaCustomer{},
 		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
+		example.ExaFileUploadAndDownload{}, PlayerResources.PlayerResources{},
 	)
 	if err != nil {
 		global.GVA_LOG.Error("register table failed", zap.Error(err))
