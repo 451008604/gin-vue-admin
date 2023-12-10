@@ -1159,7 +1159,6 @@ const options = reactive([
     },
   ...config.logs
 ])
-console.log(config.logs)
 const metaData = ref(props.meta)
 if (!metaData.value.icon) {
     metaData.value.icon = options[0].label
