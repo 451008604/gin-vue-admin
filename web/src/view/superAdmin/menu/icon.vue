@@ -21,6 +21,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import config from "@/core/config";
 
 defineOptions({
     name: 'Icon',
@@ -1156,12 +1157,14 @@ const options = reactive([
         'key': 'wind-power',
         'label': 'wind-power',
     },
+  ...config.logs
 ])
-
+console.log(config.logs)
 const metaData = ref(props.meta)
 if (!metaData.value.icon) {
     metaData.value.icon = options[0].label
 }
+
 </script>
 
 <style lang="scss">
