@@ -47,13 +47,8 @@ func Routers() *gin.Engine {
 	PrivateGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 	PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.CasbinHandler())
 	{
-
-	}
-	{
 		PlayerResourcesRouter := router.RouterGroupApp.PlayerResources
-		PlayerResourcesRouter.InitPlayerResourcesRouter(
-
-			PrivateGroup)
+		PlayerResourcesRouter.InitPlayerResourcesRouter(PrivateGroup)
 	}
 	{
 		systemRouter.InitApiRouter(PrivateGroup, PublicGroup)

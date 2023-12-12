@@ -124,8 +124,8 @@
           <div class="flex w-full gap-4">
             <el-input v-model="phoneForm.code" class="flex-1" autocomplete="off" placeholder="请自行设计短信服务，此处为模拟随便写"
               style="width:300px" />
-            <el-button type="primary" :disabled="time > 0" @click="getCode">{{ time > 0 ? `(${time}s)后重新获取` : '获取验证码'
-            }}</el-button>
+            <el-button type="primary" :disabled="time > 0" @click="getCode">{{ time > 0 ? `(${time}s)后重新获取` :
+                          '获取验证码' }}</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -147,7 +147,7 @@
             <el-input v-model="emailForm.code" class="flex-1" placeholder="请自行设计邮件服务，此处为模拟随便写" autocomplete="off"
               style="width:300px" />
             <el-button type="primary" :disabled="emailTime > 0" @click="getEmailCode">{{
-              emailTime > 0 ? `(${emailTime}s)后重新获取` : '获取验证码' }}</el-button>
+                          emailTime > 0 ? `(${emailTime}s)后重新获取` : '获取验证码' }}</el-button>
           </div>
         </el-form-item>
       </el-form>

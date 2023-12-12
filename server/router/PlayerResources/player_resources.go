@@ -19,6 +19,8 @@ func (s *PlayerResourcesRouter) InitPlayerResourcesRouter(Router *gin.RouterGrou
 		PResourcesRouter.DELETE("deletePlayerResources", PResourcesApi.DeletePlayerResources)           // 删除玩家资源
 		PResourcesRouter.DELETE("deletePlayerResourcesByIds", PResourcesApi.DeletePlayerResourcesByIds) // 批量删除玩家资源
 		PResourcesRouter.PUT("updatePlayerResources", PResourcesApi.UpdatePlayerResources)              // 更新玩家资源
+
+		PResourcesRouter.POST("setPlayerResources", PResourcesApi.SetPlayerResources) // 设置玩家资源
 	}
 	{
 		PResourcesRouterWithoutRecord.GET("findPlayerResources", PResourcesApi.FindPlayerResources)       // 根据ID获取玩家资源

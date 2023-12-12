@@ -22,7 +22,7 @@ export const filterDict = (value, options) => {
   return rowLabel && rowLabel[0] && rowLabel[0].label
 }
 
-export const getDictFunc = async(type) => {
+export const getDictFunc = async (type) => {
   const dicts = await getDict(type)
   return dicts
 }

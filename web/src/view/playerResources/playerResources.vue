@@ -399,8 +399,4 @@ const enterDialog = async () => {
 
 </script>
 
-<style>
-*{
-  
-}
-</style>
+<style></style>

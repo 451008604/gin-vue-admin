@@ -95,3 +95,12 @@ export const getPlayerResourcesList = (params) => {
     params
   })
 }
+
+
+export const setPlayerResources = (data) => {
+  return service({
+    url: '/PResources/setPlayerResources',
+    method: 'post',
+    data: data
+  })
+}
