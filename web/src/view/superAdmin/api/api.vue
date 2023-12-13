@@ -13,8 +13,7 @@
         </el-form-item>
         <el-form-item label="请求">
           <el-select v-model="searchInfo.method" clearable placeholder="请选择">
-            <el-option v-for="item in methodOptions" :key="item.value" :label="`${item.label}(${item.value})`"
-              :value="item.value" />
+            <el-option v-for="item in methodOptions" :key="item.value" :label="`${item.label}(${item.value})`" :value="item.value" />
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -26,8 +25,7 @@
     <div class="gva-table-box">
       <div class="gva-btn-list">
         <el-button type="primary" icon="plus" @click="openDialog('addApi')">新增</el-button>
-        <el-icon class="cursor-pointer"
-          @click="toDoc('https://www.bilibili.com/video/BV1kv4y1g7nT?p=7&vd_source=f2640257c21e3b547a790461ed94875e')">
+        <el-icon class="cursor-pointer" @click="toDoc('https://www.bilibili.com/video/BV1kv4y1g7nT?p=7&vd_source=f2640257c21e3b547a790461ed94875e')">
           <VideoCameraFilled />
         </el-icon>
         <el-popover v-model="deleteVisible" placement="top" width="160">
@@ -73,9 +71,7 @@
         </el-table-column>
       </el-table>
       <div class="gva-pagination">
-        <el-pagination :current-page="page" :page-size="pageSize" :page-sizes="[10, 30, 50, 100]" :total="total"
-          layout="total, sizes, prev, pager, next, jumper" @current-change="handleCurrentChange"
-          @size-change="handleSizeChange" />
+        <el-pagination :current-page="page" :page-size="pageSize" :page-sizes="[10, 30, 50, 100]" :total="total" layout="total, sizes, prev, pager, next, jumper" @current-change="handleCurrentChange" @size-change="handleSizeChange" />
       </div>
 
     </div>
@@ -88,8 +84,7 @@
         </el-form-item>
         <el-form-item label="请求" prop="method">
           <el-select v-model="form.method" placeholder="请选择" style="width:100%">
-            <el-option v-for="item in methodOptions" :key="item.value" :label="`${item.label}(${item.value})`"
-              :value="item.value" />
+            <el-option v-for="item in methodOptions" :key="item.value" :label="`${item.label}(${item.value})`" :value="item.value" />
           </el-select>
         </el-form-item>
         <el-form-item label="api分组" prop="apiGroup">

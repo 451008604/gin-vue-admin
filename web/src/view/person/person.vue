@@ -69,22 +69,19 @@
                   <p class="pb-2.5 text-xl text-gray-600">手机</p>
                   <p class="pb-2.5 text-lg text-gray-400">
                     {{ userStore.userInfo.phone || "未设置手机号" }}
-                    <a href="javascript:void(0)" class="float-right text-blue-400"
-                      @click="changePhoneFlag = true">立即修改</a>
+                    <a href="javascript:void(0)" class="float-right text-blue-400" @click="changePhoneFlag = true">立即修改</a>
                   </p>
                 </li>
                 <li class="borderd pt-2.5">
                   <p class="pb-2.5 text-xl text-gray-600">邮箱</p>
                   <p class="pb-2.5 text-lg text-gray-400">
                     {{ userStore.userInfo.email || "未设置邮箱" }}
-                    <a href="javascript:void(0)" class="float-right text-blue-400"
-                      @click="changeEmailFlag = true">立即修改</a>
+                    <a href="javascript:void(0)" class="float-right text-blue-400" @click="changeEmailFlag = true">立即修改</a>
                   </p>
                 </li>
                 <li class="borderd pt-2.5">
                   <p class="pb-2.5 text-xl text-gray-600">修改密码</p>
-                  <p class="pb-2.5 text-lg text-gray-400">
-                    修改个人密码
+                  <p class="pb-2.5 text-lg text-gray-400">修改个人密码
                     <a href="javascript:void(0)" class="float-right text-blue-400" @click="showPassword = true">修改密码</a>
                   </p>
                 </li>
@@ -122,10 +119,9 @@
         </el-form-item>
         <el-form-item label="验证码" label-width="120px">
           <div class="flex w-full gap-4">
-            <el-input v-model="phoneForm.code" class="flex-1" autocomplete="off" placeholder="请自行设计短信服务，此处为模拟随便写"
-              style="width:300px" />
+            <el-input v-model="phoneForm.code" class="flex-1" autocomplete="off" placeholder="请自行设计短信服务，此处为模拟随便写" style="width:300px" />
             <el-button type="primary" :disabled="time > 0" @click="getCode">{{ time > 0 ? `(${time}s)后重新获取` :
-                          '获取验证码' }}</el-button>
+              '获取验证码' }}</el-button>
           </div>
         </el-form-item>
       </el-form>
@@ -144,10 +140,9 @@
         </el-form-item>
         <el-form-item label="验证码" label-width="120px">
           <div class="flex w-full gap-4">
-            <el-input v-model="emailForm.code" class="flex-1" placeholder="请自行设计邮件服务，此处为模拟随便写" autocomplete="off"
-              style="width:300px" />
+            <el-input v-model="emailForm.code" class="flex-1" placeholder="请自行设计邮件服务，此处为模拟随便写" autocomplete="off" style="width:300px" />
             <el-button type="primary" :disabled="emailTime > 0" @click="getEmailCode">{{
-                          emailTime > 0 ? `(${emailTime}s)后重新获取` : '获取验证码' }}</el-button>
+              emailTime > 0 ? `(${emailTime}s)后重新获取` : '获取验证码' }}</el-button>
           </div>
         </el-form-item>
       </el-form>

@@ -17,20 +17,17 @@
             <el-row :gutter="10">
               <el-col :span="8">
                 <a href="https://github.com/flipped-aurora/gin-vue-admin">
-                  <img class="dom-center"
-                    src="https://img.shields.io/github/watchers/flipped-aurora/gin-vue-admin.svg?label=Watch" alt="">
+                  <img class="dom-center" src="https://img.shields.io/github/watchers/flipped-aurora/gin-vue-admin.svg?label=Watch" alt="">
                 </a>
               </el-col>
               <el-col :span="8">
                 <a href="https://github.com/flipped-aurora/gin-vue-admin">
-                  <img class="dom-center"
-                    src="https://img.shields.io/github/stars/flipped-aurora/gin-vue-admin.svg?style=social" alt="">
+                  <img class="dom-center" src="https://img.shields.io/github/stars/flipped-aurora/gin-vue-admin.svg?style=social" alt="">
                 </a>
               </el-col>
               <el-col :span="8">
                 <a href="https://github.com/flipped-aurora/gin-vue-admin">
-                  <img class="dom-center"
-                    src="https://img.shields.io/github/forks/flipped-aurora/gin-vue-admin.svg?label=Fork" alt="">
+                  <img class="dom-center" src="https://img.shields.io/github/forks/flipped-aurora/gin-vue-admin.svg?label=Fork" alt="">
                 </a>
               </el-col>
             </el-row>
