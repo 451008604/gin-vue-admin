@@ -2,7 +2,6 @@ package PlayerResources
 
 import (
 	"context"
-	"fmt"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/PlayerResources"
 	PlayerResourcesReq "github.com/flipped-aurora/gin-vue-admin/server/model/PlayerResources/request"
@@ -224,7 +223,6 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 		response.FailWithMessage("数据解析错误，请联系管理员", c)
 	}
 
-	fmt.Printf("%+v\n", formData)
 	// 检查用户ID是否有效
 	roleList := strings.Split(formData.Textarea94373, ",")
 	// 用于RoleID去重校验

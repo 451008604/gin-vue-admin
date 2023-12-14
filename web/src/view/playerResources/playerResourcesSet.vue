@@ -1,6 +1,5 @@
 <template>
-  <el-form :model="formData" ref="vForm" :rules="rules" label-position="left" label-width="80px" size="medium"
-    @submit.prevent>
+  <el-form :model="formData" ref="vForm" :rules="rules" label-position="left" label-width="80px" size="medium" @submit.prevent>
     <div class="table-container">
       <table class="table-layout">
         <tbody>
@@ -61,9 +60,7 @@
           <tr>
             <td class="table-cell" colspan="4">
               <el-form-item label="" label-width="0" prop="textarea47524">
-                <el-input type="textarea" v-model="formData.textarea47524"
-                  placeholder="逗号分隔道具，冒号分隔ID和数量。（例：20001:2,20002:3 = 2个20001和3个20002）" rows="8"
-                  :show-word-limit="true"></el-input>
+                <el-input type="textarea" v-model="formData.textarea47524" placeholder="逗号分隔道具，冒号分隔ID和数量。（例：20001:2,20002:3 = 2个20001和3个20002）" rows="8" :show-word-limit="true"></el-input>
               </el-form-item>
             </td>
           </tr>
@@ -77,8 +74,7 @@
           <tr>
             <td class="table-cell" colspan="4">
               <el-form-item label="" label-width="0" prop="textarea94373">
-                <el-input type="textarea" v-model="formData.textarea94373" placeholder="玩家ID列表，通过逗号分隔" rows="3"
-                  :show-word-limit="true"></el-input>
+                <el-input type="textarea" v-model="formData.textarea94373" placeholder="玩家ID列表，通过逗号分隔" rows="3" :show-word-limit="true"></el-input>
               </el-form-item>
             </td>
           </tr>
@@ -87,8 +83,7 @@
             </td>
             <td class="table-cell">
               <div class="static-content-item">
-                <el-button style="width: 200px; height: 50px; font-size: x-large;" type="success" @click="submitForm"
-                  icon="success-filled">提交</el-button>
+                <el-button style="width: 200px; height: 50px; font-size: x-large;" type="success" @click="submitForm" icon="success-filled">提交</el-button>
               </div>
             </td>
           </tr>
