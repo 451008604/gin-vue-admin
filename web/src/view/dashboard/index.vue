@@ -13,8 +13,7 @@
       <div class="gva-card quick-entrance">
         <div class="gva-card-title">快捷入口</div>
         <el-row :gutter="20">
-          <el-col v-for="(card, key) in toolCards" :key="key" :span="4" :xs="8" class="quick-entrance-items"
-            @click="toTarget(card.name)">
+          <el-col v-for="(card, key) in toolCards" :key="key" :span="4" :xs="8" class="quick-entrance-items" @click="toTarget(card.name)">
             <div class="quick-entrance-item">
               <div class="quick-entrance-item-icon" :style="{ backgroundColor: card.bg }">
                 <el-icon>
@@ -62,7 +61,7 @@ const toolCards = ref([
   {
     label: '用户管理',
     icon: 'monitor',
-    name: 'user',
+    name: 'playerResources',
     color: '#ff9c6e',
     bg: 'rgba(255, 156, 110,.3)'
   },

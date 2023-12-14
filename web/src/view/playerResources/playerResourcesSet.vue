@@ -96,6 +96,7 @@
 <script>
 import { setPlayerResources } from '@/api/playerResources.js'
 import { defineComponent, toRefs, reactive, getCurrentInstance } from 'vue'
+
 export default defineComponent({
   components: {},
   props: {},
@@ -144,7 +145,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
   
 <style lang="scss">
@@ -215,8 +215,6 @@ div.table-container {
   }
 }
 
-div.tab-container {}
-
 .label-left-align :deep(.el-form-item__label) {
   text-align: left;
 }
@@ -228,8 +226,6 @@ div.tab-container {}
 .label-right-align :deep(.el-form-item__label) {
   text-align: right;
 }
-
-.custom-label {}
 
 .static-content-item {
   min-height: 20px;
