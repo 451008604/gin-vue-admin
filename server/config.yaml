@@ -82,12 +82,12 @@ local:
     store-path: uploads/file
 mysql:
     prefix: ""
-    port: "3306"
+    port: "6606"
     config: charset=utf8mb4&parseTime=True&loc=Local
-    db-name: gva
+    db-name: plat_house_new
     username: root
     password: Guohaoqin123.
-    path: 127.0.0.1
+    path: ggghq.cn
     engine: ""
     log-mode: error
     max-idle-conns: 10
@@ -95,8 +95,8 @@ mysql:
     singular: false
     log-zap: false
 redis:
-    addr: 127.0.0.1:6379
-    password: ""
+    addr: 127.0.0.1:6380
+    password: "Abc123!@"
     db: 0
 system:
     env: local
@@ -107,7 +107,7 @@ system:
     iplimit-count: 15000
     iplimit-time: 3600
     use-multipoint: false
-    use-redis: false
+    use-redis: true
 tencent-cos:
     bucket: xxxxx-10005608
     region: ap-shanghai
