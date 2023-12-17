@@ -10,23 +10,6 @@
       </div>
     </div>
     <div class="gva-card-box">
-      <div class="gva-card quick-entrance">
-        <div class="gva-card-title">快捷入口</div>
-        <el-row :gutter="20">
-          <el-col v-for="(card, key) in toolCards" :key="key" :span="4" :xs="8" class="quick-entrance-items" @click="toTarget(card.name)">
-            <div class="quick-entrance-item">
-              <div class="quick-entrance-item-icon" :style="{ backgroundColor: card.bg }">
-                <el-icon>
-                  <component :is="card.icon" :style="{ color: card.color }" />
-                </el-icon>
-              </div>
-              <p>{{ card.label }}</p>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
-    <div class="gva-card-box">
       <div class="gva-card">
         <div class="gva-card-title">数据统计</div>
         <div class="p-4">
@@ -34,9 +17,6 @@
             <el-col :xs="24" :sm="24">
               <echarts-line />
             </el-col>
-            <!-- <el-col :xs="24" :sm="6">
-              <dashboard-table />
-            </el-col> -->
           </el-row>
         </div>
       </div>
@@ -46,8 +26,6 @@
 
 <script setup>
 import EchartsLine from '@/view/dashboard/dashboardCharts/echartsLine.vue'
-import DashboardTable from '@/view/dashboard/dashboardTable/dashboardTable.vue'
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useWeatherInfo } from '@/view/dashboard/weather.js'
 
@@ -56,51 +34,6 @@ defineOptions({
 })
 
 const weatherInfo = useWeatherInfo()
-
-const toolCards = ref([
-  {
-    label: '用户管理',
-    icon: 'monitor',
-    name: 'playerResources',
-    color: '#ff9c6e',
-    bg: 'rgba(255, 156, 110,.3)'
-  },
-  {
-    label: '角色管理',
-    icon: 'setting',
-    name: 'authority',
-    color: '#69c0ff',
-    bg: 'rgba(105, 192, 255,.3)'
-  },
-  {
-    label: '菜单管理',
-    icon: 'menu',
-    name: 'menu',
-    color: '#b37feb',
-    bg: 'rgba(179, 127, 235,.3)'
-  },
-  {
-    label: '代码生成器',
-    icon: 'cpu',
-    name: 'autoCode',
-    color: '#ffd666',
-    bg: 'rgba(255, 214, 102,.3)'
-  },
-  {
-    label: '表单生成器',
-    icon: 'document-checked',
-    name: 'formCreate',
-    color: '#ff85c0',
-    bg: 'rgba(255, 133, 192,.3)'
-  },
-  {
-    label: '关于我们',
-    icon: 'user',
-    name: 'about',
-    color: '#5cdbd3',
-    bg: 'rgba(92, 219, 211,.3)'
-  }
-])
 
 const router = useRouter()
 

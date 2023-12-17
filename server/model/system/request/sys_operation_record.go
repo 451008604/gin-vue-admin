@@ -8,4 +8,10 @@ import (
 type SysOperationRecordSearch struct {
 	system.SysOperationRecord
 	request.PageInfo
+	UserName string `json:"userName" form:"userName"`
+}
+
+type UserOperationRecordSearch struct {
+	system.SysOperationRecord
+	request.PageInfo
 }
