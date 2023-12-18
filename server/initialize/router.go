@@ -35,7 +35,6 @@ func Routers() *gin.Engine {
 
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 	{
-
 		PublicGroup.GET("/health", func(c *gin.Context) {
 			c.JSON(http.StatusOK, "ok")
 		})
@@ -46,10 +45,6 @@ func Routers() *gin.Engine {
 	}
 	PrivateGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
 	PrivateGroup.Use(middleware.JWTAuth()).Use(middleware.CasbinHandler())
-	{
-		PlayerResourcesRouter := router.RouterGroupApp.PlayerResources
-		PlayerResourcesRouter.InitPlayerResourcesRouter(PrivateGroup)
-	}
 	{
 		systemRouter.InitApiRouter(PrivateGroup, PublicGroup)
 		systemRouter.InitJwtRouter(PrivateGroup)
@@ -68,7 +63,8 @@ func Routers() *gin.Engine {
 
 		exampleRouter.InitCustomerRouter(PrivateGroup)
 		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup)
-
+		router.RouterGroupApp.PlayerResources.InitPlayerResourcesRouter(PrivateGroup)
+		router.RouterGroupApp.ServerAction.InitServerActionRouter(PrivateGroup)
 	}
 
 	return Router

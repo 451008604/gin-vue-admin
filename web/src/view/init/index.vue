@@ -22,10 +22,6 @@
           <el-form-item label="数据库类型">
             <el-select v-model="form.dbType" placeholder="请选择" class="w-full" @change="changeDB">
               <el-option key="mysql" label="mysql" value="mysql" />
-              <el-option key="pgsql" label="pgsql" value="pgsql" />
-              <el-option key="oracle" label="oracle" value="oracle" />
-              <el-option key="mssql" label="mssql" value="mssql" />
-              <el-option key="sqlite" label="sqlite" value="sqlite" />
             </el-select>
           </el-form-item>
           <el-form-item v-if="form.dbType !== 'sqlite'" label="host">

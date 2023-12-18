@@ -1,36 +1,15 @@
 <template>
   <span class="headerAvatar">
     <template v-if="picType === 'avatar'">
-      <el-avatar
-        v-if="userStore.userInfo.headerImg"
-        :size="30"
-        :src="avatar"
-      />
-      <el-avatar
-        v-else
-        :size="30"
-        :src="noAvatar"
-      />
+      <el-avatar v-if="userStore.userInfo.headerImg" :size="30" :src="avatar" />
+      <el-avatar v-else :size="30" :src="noAvatar" />
     </template>
     <template v-if="picType === 'img'">
-      <img
-        v-if="userStore.userInfo.headerImg"
-        :src="avatar"
-        class="avatar"
-      >
-      <img
-        v-else
-        :src="noAvatar"
-        class="avatar"
-      >
+      <img v-if="userStore.userInfo.headerImg" :src="avatar" class="avatar">
+      <img v-else :src="noAvatar" class="avatar">
     </template>
     <template v-if="picType === 'file'">
-      <el-image
-        :src="file"
-        class="file"
-        :preview-src-list="previewSrcList"
-        :preview-teleported="true"
-      />
+      <el-image :src="file" class="file" :preview-src-list="previewSrcList" :preview-teleported="true" />
     </template>
   </span>
 </template>
@@ -90,15 +69,16 @@ const previewSrcList = computed(() => props.preview ? [file.value] : [])
 </script>
 
 <style scoped>
-.headerAvatar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 8px;
+.headerAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
 }
-.file{
-    width: 80px;
-    height: 80px;
-    position: relative;
+
+.file {
+  width: 80px;
+  height: 80px;
+  position: relative;
 }
 </style>

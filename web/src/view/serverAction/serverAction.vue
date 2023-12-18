@@ -1,14 +1,14 @@
 <template>
-    <el-form :model="formData" ref="vForm" :rules="rules" label-position="left" label-width="200px" size="large" @submit.prevent>
+    <el-form label-position="left" label-width="200px" size="large">
         <el-row class="text-algin:center">
             <el-col :span="12" class="grid-cell">
                 <div class="static-content-item">
-                    <el-button type="primary" class="mt-5 mb-5" plain icon="Files">服务端配置热更</el-button>
+                    <el-button type="primary" class="mt-5 mb-5" plain icon="Files" @click="submitServerConfig">服务端配置热更</el-button>
                 </div>
             </el-col>
             <el-col :span="12" class="grid-cell">
                 <div class="static-content-item">
-                    <el-button type="primary" class="mt-5 mb-5" plain icon="Files">静态配置热更</el-button>
+                    <el-button type="primary" class="mt-5 mb-5" plain icon="Files" @click="submitFixedConfig">静态配置热更</el-button>
                 </div>
             </el-col>
         </el-row>
@@ -16,29 +16,36 @@
 </template>
   
 <script>
+import { ElMessage } from "element-plus";
+import { updateServerConfig, updateFixedConfig } from '@/api/serverAction.js';
 import { defineComponent, toRefs, reactive, getCurrentInstance } from 'vue'
 export default defineComponent({
     components: {},
     props: {},
     setup() {
-        const state = reactive({
-            formData: {},
-            rules: {},
-        })
-        const instance = getCurrentInstance()
-        const submitForm = () => {
-            instance.ctx.$refs['vForm'].validate(valid => {
-                if (!valid) return
-                //TODO: 提交表单
-            })
+        const submitServerConfig = async () => {
+            const res = await updateServerConfig();
+            if (res.code === 0) {
+                ElMessage({
+                    grouping: true,
+                    message: res.msg,
+                    type: 'success'
+                })
+            }
         }
-        const resetForm = () => {
-            instance.ctx.$refs['vForm'].resetFields()
+        const submitFixedConfig = async () => {
+            const res = await updateFixedConfig();
+            if (res.code === 0) {
+                ElMessage({
+                    grouping: true,
+                    message: res.msg,
+                    type: 'success'
+                })
+            }
         }
         return {
-            ...toRefs(state),
-            submitForm,
-            resetForm
+            submitServerConfig,
+            submitFixedConfig
         }
     }
 })
@@ -111,8 +118,6 @@ div.table-container {
     }
 }
 
-div.tab-container {}
-
 .label-left-align :deep(.el-form-item__label) {
     text-align: left;
 }
@@ -124,8 +129,6 @@ div.tab-container {}
 .label-right-align :deep(.el-form-item__label) {
     text-align: right;
 }
-
-.custom-label {}
 
 .static-content-item {
     min-height: 20px;

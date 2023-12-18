@@ -51,7 +51,7 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 	// 用于RoleID去重校验
 	redisRoleKey := map[string]string{}
 	for i := range roleList {
-		redisRoleKey[roleList[i]] = "roledata:" + roleList[i]
+		redisRoleKey[roleList[i]] = "accountinfo:" + roleList[i]
 		roleList[i] = redisRoleKey[roleList[i]]
 	}
 	count, err := global.GVA_REDIS.Exists(context.Background(), roleList...).Result()

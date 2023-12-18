@@ -7,7 +7,7 @@
           <img class="w-36" src="@/assets/icon256.png" style="border-radius: 20px;" draggable="false" alt>
         </div>
         <div class="m-10 mt-5">
-          <p class="text-center text-2xl font-bold">{{ $GIN_VUE_ADMIN.appName }}</p>
+          <p class="text-center text-xl font-bold">{{ $GIN_VUE_ADMIN.appName }}</p>
         </div>
         <el-form ref="loginForm" :model="loginFormData" :rules="rules" :validate-on-rule-change="false" @keyup.enter="submitForm">
           <el-form-item prop="username" class="mb-6">
