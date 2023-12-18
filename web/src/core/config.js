@@ -3,7 +3,7 @@
  */
 
 const config = {
-  appName: '慢慢生活',
+  appName: '慢慢生活后台管理系统',
   appLogo: 'https://www.gin-vue-admin.com/img/logo.png',
   showViteLogo: false,
   logs: []

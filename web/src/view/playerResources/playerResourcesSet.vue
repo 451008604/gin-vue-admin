@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="formData" ref="vForm" :rules="rules" label-position="left" label-width="80px" size="medium" @submit.prevent>
+  <el-form :model="formData" ref="vForm" :rules="rules" label-position="left" label-width="80px" @submit.prevent>
     <div class="table-container">
       <table class="table-layout">
         <tbody>
@@ -66,9 +66,8 @@
           </tr>
           <tr>
             <td class="table-cell" colspan="4">
-              <div class="static-content-item">
-                <el-divider direction="horizontal"></el-divider>
-              </div>
+              <el-divider />
+              <div class="static-content-item"> 玩家列表 </div>
             </td>
           </tr>
           <tr>
@@ -130,7 +129,6 @@ export default defineComponent({
     const instance = getCurrentInstance()
     const submitForm = () => {
       instance.ctx.$refs['vForm'].validate(valid => {
-        console.info(valid)
         if (!valid) return
         setPlayerResources(state.formData)
       })

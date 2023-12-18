@@ -1,14 +1,11 @@
 <template>
-  <el-container class="layout-cont">
+  <el-container onselectstart="return false;" class="layout-cont">
     <el-container :class="[isSider ? 'openside' : 'hideside', isMobile ? 'mobile' : '']">
-      <el-row :class="[isShadowBg && isMobile ? 'bg-black opacity-30 w-full h-full absolute top-0 left-0 z-[1001]' : '']"
-        @click="changeShadow()" />
+      <el-row :class="[isShadowBg && isMobile ? 'bg-black opacity-30 w-full h-full absolute top-0 left-0 z-[1001]' : '']" @click="changeShadow()" />
       <el-aside class="main-cont gva-aside" :style="{ width: asideWidth() }">
-        <div class="min-h-[60px] text-center transition-all duration-300 flex items-center justify-center gap-2"
-          :style="{ background: backgroundColor }">
-          <img alt class="w-9 h-9 p-1 bg-white rounded-full" :src="$GIN_VUE_ADMIN.appLogo">
-          <div v-if="isSider" class="inline-flex font-bold text-2xl" :style="{ color: textColor }">{{ $GIN_VUE_ADMIN.appName
-          }}</div>
+        <div class="min-h-[60px] text-center transition-all duration-300 flex items-center justify-center gap-2" :style="{ background: backgroundColor }">
+          <img alt class="w-10 h-10 bg-white rounded-full" src="@/assets/icon256.png">
+          <div v-if="isSider" class="inline-flex font-bold text-1xl" :style="{ color: textColor }">{{ $GIN_VUE_ADMIN.appName }}</div>
         </div>
         <Aside class="aside" />
       </el-aside>
@@ -54,9 +51,7 @@
                                 </span>
                               </el-dropdown-item>
                               <template v-if="userStore.userInfo.authorities">
-                                <el-dropdown-item
-                                  v-for="item in userStore.userInfo.authorities.filter(i => i.authorityId !== userStore.userInfo.authorityId)"
-                                  :key="item.authorityId" @click="changeUserAuth(item.authorityId)">
+                                <el-dropdown-item v-for="item in userStore.userInfo.authorities.filter(i => i.authorityId !== userStore.userInfo.authorityId)" :key="item.authorityId" @click="changeUserAuth(item.authorityId)">
                                   <span>
                                     切换为：{{ item.authorityName }}
                                   </span>
