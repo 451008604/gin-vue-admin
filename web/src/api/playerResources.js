@@ -2,7 +2,7 @@ import service from '@/utils/request'
 
 export const setPlayerResources = (data) => {
     return service({
-        url: '/PResources/setPlayerResources',
+        url: '/playerResources/setPlayerResources',
         method: 'post',
         data
     })

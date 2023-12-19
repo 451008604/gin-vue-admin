@@ -2,46 +2,20 @@ package PlayerResources
 
 import (
 	"context"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
-	"github.com/gin-gonic/gin"
 	"strconv"
 	"strings"
+
+	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/playerresources"
+	"github.com/gin-gonic/gin"
 )
 
 type PlayerResourcesApi struct {
 }
 
-type SetFormData struct {
-	Input100456   string `json:"input100456"`   // 金币数量
-	Input108790   string `json:"input108790"`   // 钻石数量
-	Input81625    string `json:"input81625"`    // 体力数量
-	Input46774    string `json:"input46774"`    // 经验数量
-	Input16999    string `json:"input16999"`    // 工具数量
-	Input17994    string `json:"input17994"`    // 护具数量
-	Input107097   string `json:"input107097"`   // 油漆数量
-	Input89875    string `json:"input89875"`    // 线材数量
-	Textarea47524 string `json:"textarea47524"` // 道具资源
-	Textarea94373 string `json:"textarea94373"` // 玩家ID列表
-}
-
-type MailJson struct {
-	Roleid        []uint32    // 角色ID
-	Prize         []ItemPrize // 奖励
-	DescribeID    int32       // 描述ID
-	ExpireTime    uint32      // 过期时间, 时间戳
-	StrExpireTime string      // 可读性较强的时间
-	AliveTime     uint32      // 存活时间, 单位秒
-}
-
-// 道具奖励
-type ItemPrize struct {
-	ID  int
-	Num int
-}
-
 func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
-	var formData SetFormData
+	var formData playerresources.SetFormData
 	if err := c.ShouldBindJSON(&formData); err != nil {
 		response.FailWithMessage("数据解析错误，请联系管理员", c)
 	}
@@ -61,9 +35,9 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 	}
 
 	// 格式化资源列表
-	var prizeData []ItemPrize
+	var prizeData []playerresources.ItemPrize
 	for i := 1; i < 9; i++ {
-		data := ItemPrize{ID: i}
+		data := playerresources.ItemPrize{ID: i}
 		switch data.ID {
 		case 1: // 金币
 			data.Num, _ = strconv.Atoi(formData.Input100456)
@@ -94,7 +68,7 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 		if len(split) < 2 {
 			continue
 		}
-		prize := ItemPrize{}
+		prize := playerresources.ItemPrize{}
 		prize.ID, _ = strconv.Atoi(split[0])
 		prize.Num, _ = strconv.Atoi(split[1])
 		if prize.Num < 1 {
@@ -105,7 +79,7 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 
 	// 缓存玩家邮件数据
 	for k := range redisRoleKey {
-		mailData := MailJson{DescribeID: 51, ExpireTime: 2556115199, StrExpireTime: "2050-12-31 23:59:59", Prize: prizeData}
+		mailData := playerresources.MailJson{DescribeID: 51, ExpireTime: 2556115199, StrExpireTime: "2050-12-31 23:59:59", Prize: prizeData}
 		strMail := Mail2Str(mailData)
 		global.GVA_REDIS.Append(context.Background(), "mail:"+k, strMail)
 	}
@@ -119,7 +93,7 @@ func (PResourcesApi *PlayerResourcesApi) SetPlayerResources(c *gin.Context) {
 }
 
 // 序列化邮件
-func Mail2Str(mailJson MailJson) string {
+func Mail2Str(mailJson playerresources.MailJson) string {
 	strMail := strconv.Itoa(int(mailJson.DescribeID)) + "-"
 	strMail += strconv.Itoa(int(mailJson.ExpireTime)) + "-"
 	strMail += strconv.Itoa(int(mailJson.AliveTime)) + "-"

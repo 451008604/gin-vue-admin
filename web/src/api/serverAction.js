@@ -15,3 +15,11 @@ export const updateFixedConfig = (data) => {
         data
     })
 }
+
+export const setTimedTasks = (data) => {
+    return service({
+        url: '/serverAction/setTimedTasks',
+        method: 'post',
+        data
+    })
+}

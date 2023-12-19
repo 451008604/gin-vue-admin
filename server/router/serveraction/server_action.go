@@ -16,5 +16,6 @@ func (s *ServerActionRouter) InitServerActionRouter(Router *gin.RouterGroup) {
 	{
 		serverActionRouter.PUT("updateServerConfig", serverActionApi.UpdateServerConfig) // 服务配置更新
 		serverActionRouter.PUT("updateFixedConfig", serverActionApi.UpdateFixedConfig)   // 固定配置更新
+		serverActionRouter.POST("setTimedTasks", serverActionApi.SetTimedTasks)          // 定时计划
 	}
 }
