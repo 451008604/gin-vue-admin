@@ -106,11 +106,11 @@ export default ({
     config.plugins.push(AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
-    Components({
-      resolvers: [ElementPlusResolver({
-        importStyle: 'sass'
-      })]
-    }))
+      Components({
+        resolvers: [ElementPlusResolver({
+          importStyle: 'sass'
+        })]
+      }))
   }
   return config
 }

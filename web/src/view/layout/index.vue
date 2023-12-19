@@ -1,8 +1,8 @@
 <template>
-  <el-container onselectstart="return false;" class="layout-cont">
+  <el-container class="layout-cont">
     <el-container :class="[isSider ? 'openside' : 'hideside', isMobile ? 'mobile' : '']">
       <el-row :class="[isShadowBg && isMobile ? 'bg-black opacity-30 w-full h-full absolute top-0 left-0 z-[1001]' : '']" @click="changeShadow()" />
-      <el-aside class="main-cont gva-aside" :style="{ width: asideWidth() }">
+      <el-aside onselectstart="return false;" class="main-cont gva-aside" :style="{ width: asideWidth() }">
         <div class="min-h-[60px] text-center transition-all duration-300 flex items-center justify-center gap-2" :style="{ background: backgroundColor }">
           <img alt class="w-10 h-10 bg-white rounded-full" src="@/assets/icon256.png">
           <div v-if="isSider" class="inline-flex font-bold text-1xl" :style="{ color: textColor }">{{ $GIN_VUE_ADMIN.appName }}</div>
@@ -26,8 +26,7 @@
                     <el-col :xs="10" :lg="14" :md="14" :sm="9" :xl="14" :pull="1" class="flex items-center">
                       <!-- 修改为手机端不显示顶部标签 -->
                       <el-breadcrumb v-show="!isMobile" class="breadcrumb">
-                        <el-breadcrumb-item v-for="item in matched.slice(1, matched.length)" :key="item.path">{{
-                          fmtTitle(item.meta.title, route) }}</el-breadcrumb-item>
+                        <el-breadcrumb-item v-for="item in matched.slice(1, matched.length)" :key="item.path">{{ fmtTitle(item.meta.title, route) }}</el-breadcrumb-item>
                       </el-breadcrumb>
                     </el-col>
                     <el-col :xs="12" :lg="9" :md="9" :sm="14" :xl="9" class="flex items-center justify-end">
@@ -81,7 +80,7 @@
             <!-- 当前面包屑用路由自动生成可根据需求修改 -->
             <!--
             :to="{ path: item.path }" 暂时注释不用-->
-            <HistoryComponent ref="layoutHistoryComponent" />
+            <HistoryComponent onselectstart="return false;" ref="layoutHistoryComponent" />
           </div>
         </transition>
         <router-view v-if="reloadFlag" v-slot="{ Component }" class="admin-box">

@@ -14,10 +14,10 @@
                 </el-col>
             </el-row>
         </el-form>
-        <el-collapse>
-            <el-collapse-item>
+        <el-collapse v-model="collapseActive">
+            <el-collapse-item name="1">
                 <template #title><span class="m-5 text-xl font-bold"> 定时计划 </span></template>
-                <el-form class="p-5" :model="formData" ref="vForm" :rules="rules" label-position="right" label-width="80px" size="default" @submit.prevent>
+                <el-form class="p-5 pl-20 pr-20" :model="formData" ref="vForm" :rules="rules" label-position="right" label-width="80px" size="default" @submit.prevent>
                     <el-form-item label="白名单" prop="WHITE_IP" class="required label-right-align">
                         <el-input v-model="formData.WHITE_IP" type="text" placeholder="建议：公司的公网IP地址" clearable></el-input>
                     </el-form-item>
@@ -51,6 +51,7 @@ export default defineComponent({
     props: {},
     setup() {
         const state = reactive({
+            collapseActive: ['1'],
             formData: {
                 durationTime: "",
                 WHITE_IP: "",
@@ -62,7 +63,7 @@ export default defineComponent({
             },
             rules: {
                 WHITE_IP: [{
-                    pattern: '(?=(\\b|\\D))(((\\d{1,2})|(1\\d{1,2})|(2[0-4]\\d)|(25[0-5]))\\.){3}((\\d{1,2})|(1\\d{1,2})|(2[0-4]\\d)|(25[0-5]))(?=(\\b|\\D))',
+                    pattern: '^((25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$',
                     trigger: ['blur', 'change'],
                     required: true,
                     message: '格式不正确，请检查',

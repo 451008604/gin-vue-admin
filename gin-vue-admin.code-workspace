@@ -17,6 +17,31 @@
     "go.toolsEnvVars": {
       "GOPROXY": "https://goproxy.cn,direct",
       "GONOPROXY": "none;"
+    },
+    "files.exclude": {
+      ".idea":true,
+      "log":true,
+      ".docker-compose":true,
+      ".dockerignore": true,
+      // ".env.development": true,
+      // ".env.production": true,
+      "node_modules":true,
+      ".eslintignore": true,
+      ".eslintrc.js": true,
+      ".gitignore": true,
+      "babel.config.js": true,
+      // "Dockerfile": true,
+      "favicon.ico": true,
+      "index.html": true,
+      "jsconfig.json": true,
+      "limit.js": true,
+      "openDocument.js": true,
+      "package-lock.json": true,
+      // "package.json": true,
+      "postcss.config.js": true,
+      "README.md": true,
+      "tailwind.config.js": true,
+      "vite.config.js": true,
     }
   },
   "launch": {
