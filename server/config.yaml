@@ -86,8 +86,8 @@ mysql:
     config: charset=utf8mb4&parseTime=True&loc=Local
     db-name: plat_house_new
     username: root
-    password: 123456789
-    path: 127.0.0.1
+    password: Guohaoqin123.
+    path: ggghq.cn
     engine: ""
     log-mode: error
     max-idle-conns: 10

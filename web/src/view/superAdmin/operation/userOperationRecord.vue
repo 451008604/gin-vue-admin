@@ -30,7 +30,7 @@
         </el-table-column>
         <el-table-column align="center" label="请求IP" prop="ip" width="120" />
         <el-table-column align="center" label="请求方法" prop="method" width="120" />
-        <el-table-column align="center" label="请求路径" prop="path" width="480" />
+        <el-table-column align="left" label="请求路径" prop="path" />
         <el-table-column align="center" label="请求" prop="path" width="80">
           <template #default="scope">
             <el-popover v-if="scope.row.body" placement="left-start" trigger="click" width="-1px">

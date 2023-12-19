@@ -8,10 +8,10 @@
       "path": "web",
       "name": "frontend"
     },
-    {
-      "path": ".",
-      "name": "root"
-    }
+    // {
+    //   "path": ".",
+    //   "name": "root"
+    // }
   ],
   "settings": {
     "go.toolsEnvVars": {
@@ -35,13 +35,19 @@
         "cwd": "${workspaceFolder:frontend}",
         "name": "Frontend",
         "runtimeExecutable": "npm",
-        "runtimeArgs": ["run-script", "serve"]
+        "runtimeArgs": [
+          "run-script",
+          "serve"
+        ]
       }
     ],
     "compounds": [
       {
         "name": "Both (Backend & Frontend)",
-        "configurations": ["Backend", "Frontend"],
+        "configurations": [
+          "Backend",
+          "Frontend"
+        ],
         "stopAll": true
       }
     ]
