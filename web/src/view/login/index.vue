@@ -2,7 +2,7 @@
   <div id="userLayout" onselectstart="return false;" class="w-full h-full relative bg">
     <div class="md:w-5/5 w-12/12 h-full flex items-center justify-evenly">
       <!-- 分割斜块 -->
-      <div class="z-[999] p-12 md:w-96 w-full flex flex-col justify-between box-border" style="background-color: rgba(255,255,255,1);border-radius: 20px;">
+      <div class="z-[999] p-12 md:w-96 w-full flex flex-col justify-between box-border" style="background-color: rgba(255,255,255,1);border-radius: 20px;box-shadow: 0px 0px 30px 0px black;">
         <div class="flex items-center justify-center">
           <img class="w-36" src="@/assets/icon256.png" style="border-radius: 20px;" draggable="false" alt>
         </div>
