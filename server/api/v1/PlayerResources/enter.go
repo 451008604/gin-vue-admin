@@ -1,4 +1,4 @@
-package PlayerResources
+package playerresources
 
 type ApiGroup struct {
 	PlayerResourcesApi

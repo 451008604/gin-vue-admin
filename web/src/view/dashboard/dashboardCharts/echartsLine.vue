@@ -21,7 +21,6 @@ const randomData = () => {
   now = new Date(+now + oneMinute);
   value = value + Math.random() * 21 - 10;
   return {
-    name: now.toString(),
     value: [now.getDate() + "日" + now.getHours() + ":" + now.getMinutes(), Math.round(value)]
   };
 }
@@ -33,44 +32,60 @@ const setOption = () => {
   chart.value.setOption({
     grid: {
       left: '40',
-      right: '20',
+      right: '5',
       top: '20',
       bottom: '20',
     },
     tooltip: {
       trigger: 'axis',
-      formatter: function (params) {
-        params = params[0];
-        var date = new Date(params.name);
-        return (
-          date.getHours() + ':' + (date.getMinutes()) + '  ' + params.value[1]
-        );
-      },
       axisPointer: {
         animation: false
       }
     },
+    toolbox: {
+      show: true,
+      itemSize: 20,
+      feature: {
+        dataZoom: {
+          yAxisIndex: 'none'
+        },
+        dataView: { readOnly: true },
+        magicType: { type: ['line', 'bar'] },
+        restore: {},
+        saveAsImage: {},
+      }
+    },
+    animation: false,
+    legend: {
+      itemGap: 20,
+      itemWidth: 20,
+      itemHeight: 10,
+    },
     xAxis: {
       type: 'category',
-      splitLine: {
-        show: false
-      }
     },
     yAxis: {
       type: 'value',
-      boundaryGap: [0, '100%'],
-      splitLine: {
-        show: false
-      }
+      boundaryGap: [0, '30%'],
     },
     dataZoom: [
       {
         type: "inside",
+        filterMode: "none",
+        minSpan: "3",
+        zoomOnMouseWheel: false,
       }
     ],
     series: [
       {
+        name: "服务1",
         type: 'line',
+        showSymbol: false,
+        data: data,
+      },
+      {
+        name: "服务2",
+        type: 'bar',
         showSymbol: false,
         data: data
       }
@@ -78,6 +93,7 @@ const setOption = () => {
   })
 }
 
+// 24 * 60 = 一天的分钟数
 for (var i = 0; i < 24 * 60; i++) {
   data.push(randomData());
 }

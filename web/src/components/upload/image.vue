@@ -1,14 +1,6 @@
-
 <template>
   <div>
-    <el-upload
-      :action="`${path}/fileUploadAndDownload/upload`"
-      :headers="{ 'x-token': userStore.token }"
-      :show-file-list="false"
-      :on-success="handleImageSuccess"
-      :before-upload="beforeImageUpload"
-      :multiple="false"
-    >
+    <el-upload :action="`${path}/fileUploadAndDownload/upload`" :headers="{ 'x-token': userStore.token }" :show-file-list="false" :on-success="handleImageSuccess" :before-upload="beforeImageUpload" :multiple="false">
       <el-button type="primary">压缩上传</el-button>
     </el-upload>
   </div>
@@ -79,9 +71,11 @@ const handleImageSuccess = (res) => {
   position: relative;
   overflow: hidden;
 }
+
 .image-uploader {
   border-color: #409eff;
 }
+
 .image-uploader-icon {
   font-size: 28px;
   color: #8c939d;
@@ -90,6 +84,7 @@ const handleImageSuccess = (res) => {
   line-height: 178px;
   text-align: center;
 }
+
 .image {
   width: 178px;
   height: 178px;

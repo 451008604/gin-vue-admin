@@ -1,4 +1,4 @@
-package PlayerResources
+package playerresources
 
 import (
 	"context"

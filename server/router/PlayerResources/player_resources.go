@@ -1,4 +1,4 @@
-package PlayerResources
+package playerresources
 
 import (
 	v1 "github.com/flipped-aurora/gin-vue-admin/server/api/v1"
