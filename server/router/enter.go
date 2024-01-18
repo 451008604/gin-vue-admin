@@ -1,8 +1,8 @@
 package router
 
 import (
-	playerresources "github.com/flipped-aurora/gin-vue-admin/server/router/PlayerResources"
 	"github.com/flipped-aurora/gin-vue-admin/server/router/example"
+	"github.com/flipped-aurora/gin-vue-admin/server/router/playerresources"
 	"github.com/flipped-aurora/gin-vue-admin/server/router/serveraction"
 	"github.com/flipped-aurora/gin-vue-admin/server/router/system"
 )

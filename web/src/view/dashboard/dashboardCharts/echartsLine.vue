@@ -15,13 +15,30 @@ const echart = ref(null)
 const oneMinute = 60 * 1000;
 let data = [];
 let now = new Date();
-let value = Math.random() * 1000;
+let value = Math.random() * 0;
+
+let data1 = [];
+let now1 = new Date();
+let value1 = Math.random() * 0;
 
 const randomData = () => {
   now = new Date(+now + oneMinute);
-  value = value + Math.random() * 21 - 10;
+  value = value + Math.random() * 20 - 10;
+  if (value < 0) {
+    value = 0
+  }
   return {
     value: [now.getDate() + "日" + now.getHours() + ":" + now.getMinutes(), Math.round(value)]
+  };
+}
+const randomData1 = () => {
+  now1 = new Date(+now1 + oneMinute);
+  value1 = value1 + Math.random() * 20 - 10;
+  if (value1 < 0) {
+    value1 = 0
+  }
+  return {
+    value: [now1.getDate() + "日" + now1.getHours() + ":" + now1.getMinutes(), Math.round(value1)]
   };
 }
 const setOption = () => {
@@ -85,9 +102,9 @@ const setOption = () => {
       },
       {
         name: "服务2",
-        type: 'bar',
+        type: 'line',
         showSymbol: false,
-        data: data
+        data: data1
       }
     ]
   })
@@ -96,6 +113,7 @@ const setOption = () => {
 // 24 * 60 = 一天的分钟数
 for (var i = 0; i < 24 * 60; i++) {
   data.push(randomData());
+  data1.push(randomData1());
 }
 
 const initChart = () => {
@@ -106,6 +124,9 @@ const initChart = () => {
 var interval = setInterval(function () {
   data.shift();
   data.push(randomData());
+
+  data1.shift();
+  data1.push(randomData1());
 
   setOption();
 }, 60 * 1000);
