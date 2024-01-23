@@ -3,8 +3,9 @@ package task
 import (
 	"errors"
 	"fmt"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/common"
 	"time"
+
+	"github.com/flipped-aurora/gin-vue-admin/server/model/common"
 
 	"gorm.io/gorm"
 )
@@ -17,13 +18,6 @@ import (
 
 func ClearTable(db *gorm.DB) error {
 	var ClearTableDetail []common.ClearDB
-
-	ClearTableDetail = append(ClearTableDetail, common.ClearDB{
-		TableName:    "sys_operation_records",
-		CompareField: "created_at",
-		Interval:     "2160h",
-	})
-
 	ClearTableDetail = append(ClearTableDetail, common.ClearDB{
 		TableName:    "jwt_blacklists",
 		CompareField: "created_at",
