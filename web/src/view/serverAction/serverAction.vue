@@ -45,7 +45,7 @@
 <script>
 import { ElMessage } from "element-plus";
 import { updateServerConfig, updateFixedConfig, setTimedTasks } from '@/api/serverAction.js';
-import { defineComponent, toRefs, reactive, getCurrentInstance } from 'vue'
+import { defineComponent, toRefs, reactive } from 'vue'
 export default defineComponent({
     components: {},
     props: {},
@@ -101,17 +101,13 @@ export default defineComponent({
             const res = await updateFixedConfig();
             success(res)
         }
-        const instance = getCurrentInstance()
         const submitForm = async () => {
-            instance.ctx.$refs['vForm'].validate(async valid => {
-                if (!valid) return
-                state.formData.WHITE_IP = state.formData.WHITE_IP.trim()
-                state.formData.CLOSE_TIME = "" + state.formData.durationTime[0]
-                state.formData.OPEN_TIME = "" + state.formData.durationTime[1]
-                console.log(state.formData);
-                const res = await setTimedTasks(state.formData);
-                success(res)
-            })
+            state.formData.WHITE_IP = state.formData.WHITE_IP.trim()
+            state.formData.CLOSE_TIME = "" + state.formData.durationTime[0]
+            state.formData.OPEN_TIME = "" + state.formData.durationTime[1]
+            console.log(state.formData);
+            const res = await setTimedTasks(state.formData);
+            success(res)
         }
         return {
             ...toRefs(state),

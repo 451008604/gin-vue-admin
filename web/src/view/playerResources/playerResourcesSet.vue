@@ -95,7 +95,7 @@
 <script>
 import { ElMessage } from "element-plus";
 import { setPlayerResources } from '@/api/playerResources.js'
-import { defineComponent, toRefs, reactive, getCurrentInstance } from 'vue'
+import { defineComponent, toRefs, reactive } from 'vue'
 
 export default defineComponent({
   components: {},
@@ -127,27 +127,20 @@ export default defineComponent({
         }],
       },
     })
-    const instance = getCurrentInstance()
-    const submitForm = () => {
-      instance.ctx.$refs['vForm'].validate(async valid => {
-        if (!valid) return
-        const res = await setPlayerResources(state.formData);
-        if (res.code === 0) {
-          ElMessage({
-            grouping: true,
-            message: res.msg,
-            type: 'success'
-          })
-        }
-      })
-    }
-    const resetForm = () => {
-      instance.ctx.$refs['vForm'].resetFields()
+
+    const submitForm = async () => {
+      const res = await setPlayerResources(state.formData);
+      if (res.code === 0) {
+        ElMessage({
+          grouping: true,
+          message: res.msg,
+          type: 'success'
+        })
+      }
     }
     return {
       ...toRefs(state),
-      submitForm,
-      resetForm
+      submitForm
     }
   }
 })
